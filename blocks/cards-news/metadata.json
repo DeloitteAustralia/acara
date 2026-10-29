@@ -1,0 +1,24 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "White band, 4-column row (col-lg-3, wraps to 2 at sm, 1 at xs): three article cards (image, blue h3, paragraph, bold 'Read more' link) and a What's New panel (blue header bar, light-blue body with news title, date, summary, 'read more'). Text-only news panel: light-blue boxed body, news title link-styled, bold date, summary, 'read more' link; sits as a narrow side column.",
+  "contentPattern": "Dynamic news list: items link to news-details pages and carry a date; item count can change. Text-only cards (no images).",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.nap.edu.au/home",
+  "blockStructure": {
+    "source": "/block-collection/cards",
+    "rows": [
+      [
+        "Cards (no images)"
+      ],
+      [
+        "h4 news title + date (strong) + summary paragraph + read more link"
+      ]
+    ],
+    "notes": "What's New: one row per news item (1 on this page)."
+  },
+  "usage": "What's New panel listing news items with title, bold date, summary and read more link.",
+  "reuseGuidance": "Use for text-only dated news lists. One row per item; a paragraph containing only bold text is treated as the date and a paragraph containing only a link as the read-more link. Images are optional."
+}
