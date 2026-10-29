@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.nap.edu.au/home"
+      ],
+      "representativeUrl": "https://www.nap.edu.au/home",
+      "description": "NAP home page: banner carousel with side caption, three article cards and a What's New news panel",
+      "urlPattern": "/*",
+      "blocks": [
+        {
+          "name": "carousel-side-caption",
+          "instances": [
+            "#home-carousel",
+            "section.banner .carousel"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            "#content1 .divarticle",
+            ".bottom-section .divarticle"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            "#content1 .whatsnew",
+            "article.divNewsContent .whatsnew"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc4",
+          "name": "Banner carousel",
+          "selector": [
+            "section.banner",
+            "#form1 > section.banner"
+          ],
+          "style": "blue",
+          "blocks": [
+            "carousel-side-caption"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "Featured articles and What's New",
+          "selector": [
+            "#content1",
+            ".bottom-section"
+          ],
+          "style": "split",
+          "blocks": [
+            "cards-article",
+            "cards-news"
+          ],
+          "defaultContent": [
+            "article.divNewsContent > h3"
+          ]
+        }
+      ]
+    }
+  ]
+}

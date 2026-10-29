@@ -1,20 +1,160 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/* footer: grey link band + white bottom bar, source nap.edu.au */
+footer .footer {
+  font-size: var(--body-font-size-m);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 footer .footer p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+footer .footer a:any-link {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+footer .footer a:hover,
+footer .footer a:focus-visible {
+  text-decoration: underline;
+}
+
+footer .footer img {
+  display: block;
+}
+
+/* link band */
+footer .footer-links {
+  padding: 10px 0 25px;
+  background-color: var(--brand-grey);
+}
+
+footer .footer-links-inner,
+footer .footer-bottom-inner {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: calc(2 * var(--content-padding));
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+footer .footer-column h4 {
+  margin: 10px 0;
+  color: var(--brand-blue-dark);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 17.6px;
+}
+
+footer .footer-column ul {
+  margin-bottom: 10px;
+}
+
+/* stacked columns overlap the previous list's 10px bottom margin, as on the source */
+footer .footer-column + .footer-column {
+  margin-top: -10px;
+}
+
+footer .footer-column li {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+footer .footer-column a:any-link {
+  color: var(--brand-blue-dark);
+  font-size: 12px;
+  line-height: 17.1429px;
+}
+
+/* social icons under the last column */
+footer .footer .footer-social {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0;
+  padding-top: 15px;
+}
+
+footer .footer-social img {
+  width: 31px;
+  height: 32px;
+}
+
+/* bottom bar: copyright + legal links, badge images */
+footer .footer-bottom {
+  padding: 20px 0 30px;
+  background-color: var(--background-color);
+}
+
+footer .footer-legal {
+  color: var(--dark-color);
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+}
+
+footer .footer-legal a:any-link {
+  color: var(--dark-color);
+}
+
+/* mobile: badges stacked, left edge offset like the source (x=101 at 375px) */
+footer .footer-badges {
+  margin-top: 15px;
+}
+
+footer .footer .footer-badges ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding-left: 86px;
+}
+
+/* source badge links keep the default link colours (only visible as focus/underline cues) */
+footer .footer-badges a:any-link {
+  color: #337ab7;
+}
+
+footer .footer-badges a:hover {
+  color: #23527c;
+}
+
+footer .footer-badges img {
+  width: auto;
+  height: 47px;
+}
+
+/* breakpoint-exception: matches the source's Bootstrap sm breakpoint where the 4 link columns appear */
+@media (width >= 768px) {
+  footer .footer-links-inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  footer .footer-column + .footer-column {
+    margin-top: 0;
+  }
+
+  footer .footer-bottom-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  footer .footer-legal {
+    text-align: left;
+  }
+
+  footer .footer-badges {
+    margin-top: 0;
+  }
+
+  /* source badges are inline images separated by a space (~4.3px) */
+  footer .footer .footer-badges ul {
+    flex-flow: row wrap;
+    gap: 0 4.3px;
+    padding-left: 0;
   }
 }

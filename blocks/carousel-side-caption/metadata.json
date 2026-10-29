@@ -1,0 +1,25 @@
+{
+  "variantName": "carousel-side-caption",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Contained-width rotating banner: each slide is a 3/4-width linked banner image (headline and CTA are baked into the image) beside a 1/4-width white caption panel with intro paragraph; blue indicator bar with 3 dots at bottom right. Slides pair a 3/4-width linked banner image with a 1/4-width caption panel on the right; dot indicators on a blue bar under the caption. No vanilla/existing variant matches the side caption layout.",
+  "contentPattern": "Interactive rotating slideshow with indicators; each slide is an image plus a caption text cell.",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.nap.edu.au/home",
+  "blockStructure": {
+    "source": "/block-collection/carousel",
+    "rows": [
+      [
+        "Carousel"
+      ],
+      [
+        "slide image (linked banner image)",
+        "caption text: paragraph (optional heading, CTA)"
+      ]
+    ],
+    "notes": "One row per slide (3 slides). Banner headline/CTA are part of the image; keep the image link."
+  },
+  "usage": "Homepage rotating banner where each slide pairs a linked banner image (headline/CTA baked in) with a short intro caption panel to its right.",
+  "reuseGuidance": "Use for image + side caption slideshows. For full-bleed slides with overlaid text, use the base carousel instead. One row per slide: cell 1 image (optionally linked), cell 2 caption text."
+}

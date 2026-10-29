@@ -1,0 +1,251 @@
+/* carousel-side-caption: values from https://www.nap.edu.au/home #home-carousel computed styles */
+.carousel-side-caption {
+  background-color: var(--brand-blue-nav);
+  overflow: hidden;
+}
+
+.carousel-side-caption .carousel-side-caption-slides-container {
+  position: relative;
+}
+
+.carousel-side-caption .carousel-side-caption-slides,
+.carousel-side-caption .carousel-side-caption-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-side-caption .carousel-side-caption-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+  scrollbar-width: none;
+}
+
+.carousel-side-caption .carousel-side-caption-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* mobile: image stacked above caption */
+.carousel-side-caption .carousel-side-caption-slide {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* source: .embed-responsive with padding-bottom 51% and overflow hidden; image anchored top */
+.carousel-side-caption .carousel-side-caption-slide-image {
+  aspect-ratio: 100 / 51;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.carousel-side-caption .carousel-side-caption-slide-image p {
+  margin: 0;
+  height: 100%;
+}
+
+.carousel-side-caption .carousel-side-caption-slide-image a,
+.carousel-side-caption .carousel-side-caption-slide-image picture {
+  display: block;
+  height: 100%;
+}
+
+.carousel-side-caption .carousel-side-caption-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.carousel-side-caption .carousel-side-caption-slide-caption {
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 18.6667px;
+  text-align: left;
+  padding: 10px 15px;
+}
+
+.carousel-side-caption .carousel-side-caption-slide-caption p {
+  margin: 0 0 10px;
+}
+
+/* indicators: dots overlaid on the bottom edge of the slide */
+.carousel-side-caption .carousel-side-caption-indicators-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 20px;
+}
+
+.carousel-side-caption .carousel-side-caption-indicators {
+  display: flex;
+  justify-content: center;
+
+  /* source inline-block dots sit on the baseline, ~5.6px above the 20px bar bottom */
+  align-items: flex-end;
+  box-sizing: border-box;
+  height: 100%;
+  padding-bottom: 5.6px;
+  line-height: 0;
+}
+
+.carousel-side-caption .carousel-side-caption-indicator {
+  display: flex;
+}
+
+/* 24px touch target (WCAG 2.5.8) around the small source dot; negative block
+   margins keep the dot on the same baseline */
+.carousel-side-caption .carousel-side-caption-indicator button,
+.carousel-side-caption .carousel-side-caption-toggle {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin: -6px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.carousel-side-caption .carousel-side-caption-indicator button::before {
+  content: '';
+  width: 11px;
+  height: 11px;
+  border-radius: 10px;
+  background-color: #00a3de;
+}
+
+.carousel-side-caption .carousel-side-caption-indicator button[aria-current="true"] {
+  cursor: default;
+}
+
+.carousel-side-caption .carousel-side-caption-indicator button[aria-current="true"]::before {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+
+/* pause icon: two bars; play icon: triangle */
+.carousel-side-caption .carousel-side-caption-toggle {
+  align-self: flex-end;
+  margin-bottom: -0.4px;
+}
+
+.carousel-side-caption .carousel-side-caption-toggle::before {
+  content: '';
+  box-sizing: border-box;
+  width: 10px;
+  height: 11px;
+  border-inline: 3px solid #fff;
+}
+
+.carousel-side-caption .carousel-side-caption-toggle.paused::before {
+  width: 0;
+  height: 0;
+  border-block: 6px solid transparent;
+  border-inline: 10px solid #fff;
+  border-inline-end: 0;
+}
+
+.carousel-side-caption .carousel-side-caption-indicator button:focus-visible,
+.carousel-side-caption .carousel-side-caption-toggle:focus-visible {
+  outline: 2px solid var(--brand-blue-nav);
+  outline-offset: -2px;
+}
+
+/* mobile: controls sit on the white caption, so white marks would be invisible
+   (the source has this flaw); use brand blue for the current dot and the toggle */
+@media (width < 992px) {
+  .carousel-side-caption .carousel-side-caption-indicator button[aria-current="true"]::before {
+    background-color: var(--brand-blue-nav);
+  }
+
+  .carousel-side-caption .carousel-side-caption-toggle::before,
+  .carousel-side-caption .carousel-side-caption-toggle.paused::before {
+    border-inline-color: var(--brand-blue-nav);
+  }
+
+  .carousel-side-caption .carousel-side-caption-toggle.paused::before {
+    border-inline-end-color: transparent;
+  }
+}
+
+@media (width >= 992px) {
+  .carousel-side-caption .carousel-side-caption-indicator button:focus-visible,
+  .carousel-side-caption .carousel-side-caption-toggle:focus-visible {
+    outline-color: #fff;
+  }
+}
+
+/* desktop (source Bootstrap md+): col-md-9 image beside the caption panel; dots bottom right */
+@media (width >= 992px) {
+  .carousel-side-caption .carousel-side-caption-slide {
+    display: block;
+  }
+
+  .carousel-side-caption .carousel-side-caption-slide-image {
+    width: calc((100% + 30px) * 0.75 - 15px);
+  }
+
+  .carousel-side-caption .carousel-side-caption-slide.no-caption .carousel-side-caption-slide-image {
+    width: 100%;
+  }
+
+  /* source caption is 292.5px wide with 40px side padding, clipped 15px on the right by the carousel */
+  .carousel-side-caption .carousel-side-caption-slide-caption {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - ((100% + 30px) * 0.75 - 15px));
+    max-height: 100%;
+    overflow: hidden;
+    line-height: 26.6px;
+
+    /* source: 30px side padding, 15px of the right side clipped by the carousel */
+    padding: 15px 15px 20px 30px;
+  }
+
+  .carousel-side-caption .carousel-side-caption-indicators-nav {
+    left: auto;
+    right: 90px;
+    bottom: 9px;
+    width: 200px;
+  }
+
+  .carousel-side-caption .carousel-side-caption-indicators-nav,
+  .carousel-side-caption .carousel-side-caption-indicators {
+    justify-content: flex-end;
+  }
+
+  /* keep the pause icon centred inside the 22px blue strip under the caption */
+  .carousel-side-caption .carousel-side-caption-toggle {
+    margin-bottom: -13px;
+  }
+}
+
+/* large desktop (source lg): taller caption padding, dots further left */
+@media (width >= 1200px) {
+  .carousel-side-caption .carousel-side-caption-slide-caption {
+    padding: 70px 25px 72px 40px;
+  }
+
+  .carousel-side-caption .carousel-side-caption-indicators-nav {
+    right: 115px;
+    bottom: 12px;
+  }
+}

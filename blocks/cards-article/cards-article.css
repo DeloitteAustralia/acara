@@ -1,0 +1,86 @@
+/* cards-article: image-topped teaser cards (source: #content1 .divarticle, nap.edu.au) */
+.cards-article {
+  color: var(--text-color);
+}
+
+.cards-article > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 30px;
+}
+
+.cards-article .cards-article-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* source .divArticleImage: padding-top 12px; image fills the column, natural ratio */
+.cards-article .cards-article-card-image {
+  padding-top: 12px;
+  line-height: 0;
+}
+
+.cards-article .cards-article-card-image picture {
+  display: block;
+}
+
+.cards-article .cards-article-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cards-article .cards-article-card-body h3 {
+  margin: 20px 0 10px;
+  color: var(--heading-color);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+}
+
+.cards-article .cards-article-card-body p {
+  margin: 0 0 10px;
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+/*
+ * Source renders "Read more" inline after a <br> inside the last paragraph,
+ * with line-height 42px. The authored link sits in its own paragraph, so pull
+ * it up by the previous paragraph's 10px bottom margin.
+ */
+.cards-article .cards-article-card-body p.cards-article-card-link {
+  margin-top: -10px;
+  line-height: 42px;
+}
+
+.cards-article .cards-article-card-body a:any-link {
+  color: var(--link-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cards-article .cards-article-card-body a:hover,
+.cards-article .cards-article-card-body a:focus-visible {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* source col-sm-6: 2-up from 768px */
+@media (width >= 768px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* source col-lg-3: the three cards sit side by side from 992px */
+@media (width >= 992px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
