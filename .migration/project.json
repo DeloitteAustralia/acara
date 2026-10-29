@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "acara-poc-demo1": {
+      "previewOrg": "veeru-tammisetty",
+      "previewSite": "acara-poc-demo1",
+      "contentHostUrl": "https://content.da.live/veeru-tammisetty/acara-poc-demo1/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}
